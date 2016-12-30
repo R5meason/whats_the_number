@@ -30,7 +30,11 @@ function pick_number() {
 
 function make_guess() {                 //compares user input to the random number
     var guess = parseInt($('#guess_input').val());
-    if (guess > the_number) {
+    if (guess > 10 || guess < 1) {
+        $('#response_div').text("You did not enter a number between 1-10. Please try again.");
+        amtOfTurns(1);
+    }
+    else if (guess > the_number) {
         $('#response_div').text("The number you've guessed is too high");
         amtOfTurns(1);
     }
@@ -50,6 +54,7 @@ function make_guess() {                 //compares user input to the random numb
         $('#response_div').text("You did not enter a number between 1-10. Please try again.");
         amtOfTurns(1);
     }
+    document.getElementById("guess_input").value = "?";
 }
 
 the_number = pick_number();
