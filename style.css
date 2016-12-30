@@ -1,9 +1,11 @@
+
 body {
     text-align: center;
     font-family: 'Knewave', cursive;
+    margin: 0 auto;
 }
 
-.start{
+.start {
     width: 100vw;
     height: 100vh;
 }
@@ -11,30 +13,26 @@ body {
 header {
     width: 100%;
     text-align: center;
-    height: 15vh;
-    display: block;
 }
 
 #title {
-    font-size: 2em;
+    font-size: 3vw;
     margin: 0;
-    display: block;
 }
 
 #info {
-    font-size: 1em;
+    font-size: 2vw;
     margin: 0;
-    display: block;
 }
 
 .game_container {
     width: 100%;
     height: 22vh;
-    display: block;
 }
 
-#remainingGuesses{
-    margin-bottom: 1%;
+#remainingGuesses {
+    font-size: 2vw;
+    margin: 1% 0 1% 0;
 }
 
 #guess_input {
@@ -42,7 +40,7 @@ header {
     color: mediumblue;
     height: 3vh;
     width: 5vw;
-    font-size: 2em;
+    font-size: 3vw;
     border-radius: 5%;
     padding: 1%;
     text-align: center;
@@ -51,10 +49,9 @@ header {
 
 #response_div {
     color: black;
-    font-size: 1.5em;
+    font-size: 2.5vw;
     width: 100%;
     height: 5vh;
-    display: block;
 }
 
 button {
@@ -65,7 +62,8 @@ button {
     border: 1px solid black;
     font-weight: bold;
     padding: 1%;
-
+    margin-top: 2%;
+    font-size: 1.5vw;
 }
 
 button:hover {
@@ -73,31 +71,24 @@ button:hover {
     background-color: black;
 }
 
-#submit {
-    margin-top: 2%;
-}
-
 #reset {
-    font-size: 2em;
+    font-size: 3vw;
 }
 
 #image_container {
     width: 100%;
     height: 55vh;
-    display: block;
 }
 
 .imageHeader {
     width: 100%;
     height: 3.5vh;
     margin-bottom: 2%;
-    font-size: 1.5em;
-    display: block;
+    font-size: 2.5vw;
 }
 
 #randomImg {
     margin-top: 7%;
     height: 51vh;
-    display: block;
 }
 
