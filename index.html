@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>What's The Number?</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">
+</head>
+
+<body>
+<div class="start">
+<header>
+    <p id="title">What's The Number?</p>
+    <p id="info">Guess The Correct Number Between 1 - 10 & Receive A Random Image</p>
+</header>
+<div class="game_container">
+    <div id="remainingGuesses">Remaining Guesses: <span id="guessNum"></span></div>
+    <button id="reset" onClick="window.location.reload()">
+        Play Again?
+    </button>
+    <input id="guess_input" class="enterGuess" type="text" placeholder="?">
+    <br>
+    <button id="submit" class="enterGuess" type="button">
+        Guess
+    </button>
+    <br>
+    <div id="response_div"></div>
+    <div id="image_container">
+        <div class="imageHeader">
+            Here's a Random Picture
+            <br>
+            <img src="imgs/Poweredby_100px-White_VertText.png">
+        </div>
+        <div id="randomImg"></div>
+    </div>
+</div>
+</div>
+</body>
+
+</html>
