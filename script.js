@@ -8,7 +8,7 @@ $(document).ready(function () {            //targets submit button, function sen
 });
 
 var the_number = null;
-var guesses = 5;
+var guesses = 4;
 
 var amtOfTurns = function (turns) {
     guesses -= turns;
@@ -54,7 +54,7 @@ function make_guess() {                 //compares user input to the random numb
         $('#response_div').text("You did not enter a number between 1-10. Please try again.");
         amtOfTurns(1);
     }
-    document.getElementById("guess_input").value = "?";
+    document.getElementById("guess_input").value = "";
 }
 
 the_number = pick_number();
