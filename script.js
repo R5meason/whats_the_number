@@ -17,6 +17,7 @@ var amtOfTurns = function (turns) {
         $("#reset").show();
         $('.enterGuess').hide();
         $('#remainingGuesses').hide();
+        $('#info').hide();
     }
     else {
         $('#guessNum').text(guesses);
@@ -43,9 +44,11 @@ function make_guess() {                 //compares user input to the random numb
         amtOfTurns(1);
     }
     else if (guess === the_number) {
-        $('#response_div').text("You've guessed the correct number!");
+        // $('#response_div').text("You've guessed the correct number!");
+        $('#response_div').hide();
         getImg();
         $('.enterGuess').hide();
+        $('#info').hide();
         $('#remainingGuesses').hide();
         $("#image_container").show();
         $("#reset").show();
