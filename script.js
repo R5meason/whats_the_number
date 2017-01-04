@@ -60,13 +60,10 @@ function make_guess() {                 //compares user input to the random numb
 the_number = pick_number();
 
 var getImg = function () {
-    console.log('click initiated');
     $.ajax({
         dataType: 'json',
         url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC',
         success: function (result) {
-            console.log('loaded', result);
-            console.log(result.data.image_url);
             var randoImg = result.data.image_url;
             var imgStart = "<img src='";
             var imgStop = "'>";
