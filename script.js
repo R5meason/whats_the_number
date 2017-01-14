@@ -71,11 +71,10 @@ var getImg = function () {
         dataType: 'json',
         url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC',
         success: function (result) {
-            var randoImg = result.data.image_url;
+            var randoImg = result.data.fixed_height_downsampled_url;
             var imgStart = "<img src='";
             var imgStop = "'>";
             document.getElementById("randomImg").innerHTML = imgStart + randoImg + imgStop;
         }
     });
-
 };
