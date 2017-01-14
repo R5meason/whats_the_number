@@ -14,6 +14,7 @@ var amtOfTurns = function (turns) {
     guesses -= turns;
     if (guesses === 0) {
         $('#response_div').text("Out of Turns! Game Over");
+        $('#test').hide("fast");
         $("#reset").show();
         $('.enterGuess').hide();
         $('#remainingGuesses').hide();
@@ -33,18 +34,20 @@ function make_guess() {                 //compares user input to the random numb
     var guess = parseInt($('#guess_input').val());
     if (guess > 10 || guess < 1) {
         $('#response_div').text("You did not enter a number between 1-10. Please try again.");
+        $('#guess_input').effect("shake");
         amtOfTurns(1);
     }
     else if (guess > the_number) {
         $('#response_div').text("The number you've guessed is too high");
+        $('#guess_input').effect("shake");
         amtOfTurns(1);
     }
     else if (guess < the_number) {
         $('#response_div').text("The number you've guessed is too low");
+        $('#guess_input').effect("shake");
         amtOfTurns(1);
     }
     else if (guess === the_number) {
-        // $('#response_div').text("You've guessed the correct number!");
         $('#response_div').hide();
         getImg();
         $('.enterGuess').hide();
@@ -55,6 +58,7 @@ function make_guess() {                 //compares user input to the random numb
     }
     else {
         $('#response_div').text("You did not enter a number between 1-10. Please try again.");
+        $('#guess_input').effect("shake");
         amtOfTurns(1);
     }
     document.getElementById("guess_input").value = "";

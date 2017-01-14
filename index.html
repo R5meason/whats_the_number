@@ -5,6 +5,7 @@
     <title>What's The Number?</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">
 </head>
@@ -19,8 +20,9 @@
     <button id="reset" onClick="window.location.reload()">
         Play Again?
     </button>
-    <input id="guess_input" class="enterGuess" type="text" placeholder="?">
-    <br>
+    <div id="test"><input id="guess_input" class="enterGuess" type="text" placeholder="?">
+    </div>
+        <br>
     <button id="submit" class="enterGuess" type="button">
         Guess
     </button>
