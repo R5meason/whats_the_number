@@ -7,10 +7,9 @@ $(document).ready(function () {            //targets submit button, function sen
     $("#reset").hide();
 });
 
-
-
 var the_number = null;
 var guesses = 4;
+the_number = pick_number();
 
 var amtOfTurns = function (turns) {
     guesses -= turns;
@@ -66,7 +65,7 @@ function make_guess() {                 //compares user input to the random numb
     document.getElementById("guess_input").value = "";
 }
 
-the_number = pick_number();
+
 
 var getImg = function () {
     $.ajax({
@@ -82,4 +81,23 @@ var getImg = function () {
 };
 
 
+
+var getQuote = function () {
+    var quoteContainer;
+
+    $.ajax({
+        url: 'https://andruxnet-random-famous-quotes.p.mashape.com/',
+        datatype: 'json',
+        success: function(data) {
+            quoteContainer = JSON.parse(data);
+            console.log(quoteContainer.quote +'<br> -'+quoteContainer.author);
+        },
+        // error: function(err) {
+        //     alert(err);
+        // },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("X-Mashape-Authorization", "035vi91FxRmshxP9HdyDipEnKGr5p15ixpjjsn1IF2377M87v7"); // Enter here your Mashape key
+        }
+    });
+};
 
