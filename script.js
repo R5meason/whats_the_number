@@ -7,6 +7,8 @@ $(document).ready(function () {            //targets submit button, function sen
     $("#reset").hide();
 });
 
+
+
 var the_number = null;
 var guesses = 4;
 
@@ -14,7 +16,7 @@ var amtOfTurns = function (turns) {
     guesses -= turns;
     if (guesses === 0) {
         $('#response_div').text("Out of Turns! Game Over");
-        $('#test').hide("fast");
+        $('#game_input').hide("fast");
         $("#reset").show();
         $('.enterGuess').hide();
         $('#remainingGuesses').hide();
@@ -78,3 +80,6 @@ var getImg = function () {
         }
     });
 };
+
+
+
