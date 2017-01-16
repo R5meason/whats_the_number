@@ -8,6 +8,6 @@ This app was one of my first solo projects involving Javascript, and one of my f
 
 Originally titled "Guessing Game", the player could enter an unlimited amount of turns until the correct number was guessed and a 'You Win' message appeared on screen.
 
-Months later, I was thinking for a way to make the app more entertaining. I added a number of guesses allowed (5), and used an API from a gif generator site (Giphy) to display a random image if/when the player has won. 
+Months later, I was thinking for a way to make the app more entertaining. I added a number of guesses allowed, and used an API from a gif generator site (Giphy) to display a random image if/when the player has won. 
 
 
