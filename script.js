@@ -28,6 +28,7 @@ var amtOfTurns = function (turns) {
 
 function pick_number() {
     var random_number = Math.floor(Math.random() * 10 + 1); //Math.Random gives random # from 0 - .9999[...] Math.floor gives whole number, *10 + 1 multiplies whole number by 10 and adds 1 (in case of zero).
+    prizeNum = random_number;
     return random_number;
 }
 
@@ -65,10 +66,8 @@ function make_guess() {                 //compares user input to the random numb
     document.getElementById("guess_input").value = "";
 }
 
+var prizeNum;
 var reward = function () {
-    var numberHolder = the_number;
-    pick_number();
-    var newNum = the_number;
 
     // <-------------------------------------------- Begin APIs
     var getImg = function () {
@@ -87,7 +86,6 @@ var reward = function () {
 
     var getQuote = function () {
         var quoteContainer;
-
         $.ajax({
             url: 'https://andruxnet-random-famous-quotes.p.mashape.com/',
             datatype: 'json',
@@ -103,9 +101,8 @@ var reward = function () {
     };
 
     var getFact = function () {
-
         $.ajax({
-            url: 'https://numbersapi.p.mashape.com/' + numberHolder + '/trivia?fragment=true&json=true&notfound=floor',
+            url: 'https://numbersapi.p.mashape.com/' + the_number + '/trivia?fragment=true&json=true&notfound=floor',
             datatype: 'json',
             success: function (data) {
                 var triviaNum = "Fact about # " + data.number;
@@ -118,11 +115,11 @@ var reward = function () {
         });
     };
 // <-------------------------------------------- End APIs
-
-    if (newNum <= 3) {
+    pick_number();
+    if (prizeNum <= 3) {
         getQuote()
     }
-    else if (newNum >= 7) {
+    else if (prizeNum >= 7) {
         getImg()
     }
     else {
