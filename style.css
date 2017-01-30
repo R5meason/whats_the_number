@@ -80,3 +80,14 @@ button:hover {
     margin-bottom: 2%;
     font-size: 2.5vw;
 }
+
+#randomPrize {
+    font-family: Veranda, sans-serif;
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+#aaa{
+font-style: italic;
+    margin-left: 15%;
+}

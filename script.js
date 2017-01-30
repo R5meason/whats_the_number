@@ -3,7 +3,7 @@ $(document).ready(function () {            //targets submit button, function sen
         make_guess();
     });
     amtOfTurns(0);
-    $("#image_container").hide();
+    $("#prize_container").hide();
     $("#reset").hide();
 });
 
@@ -28,6 +28,7 @@ var amtOfTurns = function (turns) {
 
 function pick_number() {
     var random_number = Math.floor(Math.random() * 10 + 1); //Math.Random gives random # from 0 - .9999[...] Math.floor gives whole number, *10 + 1 multiplies whole number by 10 and adds 1 (in case of zero).
+    console.log(random_number);
     return random_number;
 }
 
@@ -50,12 +51,20 @@ function make_guess() {                 //compares user input to the random numb
     }
     else if (guess === the_number) {
         $('#response_div').hide();
-        getImg();
+
         $('.enterGuess').hide();
         $('#info').hide();
         $('#remainingGuesses').hide();
-        $("#image_container").show();
+        $("#prize_container").show();
         $("#reset").show();
+        if (the_number % 2 === 0){
+            getImg();
+        }
+        else {
+            getQuote();
+            $("#giphyLogo").hide();
+        }
+
     }
     else {
         $('#response_div').text("You did not enter a number between 1-10. Please try again.");
@@ -75,7 +84,7 @@ var getImg = function () {
             var randoImg = result.data.fixed_height_downsampled_url;
             var imgStart = "<img src='";
             var imgStop = "'>";
-            document.getElementById("randomImg").innerHTML = imgStart + randoImg + imgStop;
+            document.getElementById("randomPrize").innerHTML = imgStart + randoImg + imgStop;
         }
     });
 };
@@ -90,11 +99,9 @@ var getQuote = function () {
         datatype: 'json',
         success: function(data) {
             quoteContainer = JSON.parse(data);
-            console.log(quoteContainer.quote +'<br> -'+quoteContainer.author);
+            var quote = "<br>"+"\""+quoteContainer.quote+"\""+'<br><span id=\"aaa\"> -'+quoteContainer.author+'</span>';
+            document.getElementById("randomPrize").innerHTML = quote;
         },
-        // error: function(err) {
-        //     alert(err);
-        // },
         beforeSend: function(xhr) {
             xhr.setRequestHeader("X-Mashape-Authorization", "035vi91FxRmshxP9HdyDipEnKGr5p15ixpjjsn1IF2377M87v7"); // Enter here your Mashape key
         }
