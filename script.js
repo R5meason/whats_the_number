@@ -50,20 +50,12 @@ function make_guess() {                 //compares user input to the random numb
     }
     else if (guess === the_number) {
         $('#response_div').hide();
-
         $('.enterGuess').hide();
         $('#info').hide();
         $('#remainingGuesses').hide();
         $("#prize_container").show();
         $("#reset").show();
-        if (the_number % 2 === 0){
-            getImg();
-        }
-        else {
-            getQuote();
-            $("#giphyLogo").hide();
-        }
-
+        reward()
     }
     else {
         $('#response_div').text("You did not enter a number between 1-10. Please try again.");
@@ -73,32 +65,67 @@ function make_guess() {                 //compares user input to the random numb
     document.getElementById("guess_input").value = "";
 }
 
-var getImg = function () {
-    $.ajax({
-        dataType: 'json',
-        url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC',
-        success: function (result) {
-            var randoImg = result.data.fixed_height_downsampled_url;
-            var imgStart = "<img src='";
-            var imgStop = "'>";
-            document.getElementById("randomPrize").innerHTML = imgStart + randoImg + imgStop;
-        }
-    });
-};
+var reward = function () {
+    var numberHolder = the_number;
+    pick_number();
+    var newNum = the_number;
 
-var getQuote = function () {
-    var quoteContainer;
+    // <-------------------------------------------- Begin APIs
+    var getImg = function () {
+        $.ajax({
+            dataType: 'json',
+            url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC',
+            success: function (result) {
+                var randoImg = result.data.fixed_height_downsampled_url;
+                var imgStart = "<img src='";
+                var imgStop = "'>";
+                var logo = "<img id='giphyLogo' src='imgs/Poweredby_100px-White_VertText.png'>";
+                document.getElementById("randomPrize").innerHTML = logo +"<br>"+imgStart + randoImg + imgStop;
+            }
+        });
+    };
 
-    $.ajax({
-        url: 'https://andruxnet-random-famous-quotes.p.mashape.com/',
-        datatype: 'json',
-        success: function(data) {
-            quoteContainer = JSON.parse(data);
-            var quote = "<br>"+"\""+quoteContainer.quote+"\""+'<br><span id=\"aaa\"> -'+quoteContainer.author+'</span>';
-            document.getElementById("randomPrize").innerHTML = quote;
-        },
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader("X-Mashape-Authorization", "035vi91FxRmshxP9HdyDipEnKGr5p15ixpjjsn1IF2377M87v7"); // Enter here your Mashape key
-        }
-    });
+    var getQuote = function () {
+        var quoteContainer;
+
+        $.ajax({
+            url: 'https://andruxnet-random-famous-quotes.p.mashape.com/',
+            datatype: 'json',
+            success: function (data) {
+                quoteContainer = JSON.parse(data);
+                var quote = "<br>" + "\"" + quoteContainer.quote + "\"" + '<br><span id=\"aaa\"> -' + quoteContainer.author + '</span>';
+                document.getElementById("randomPrize").innerHTML = quote;
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-Mashape-Authorization", "035vi91FxRmshxP9HdyDipEnKGr5p15ixpjjsn1IF2377M87v7"); // Enter here your Mashape key
+            }
+        });
+    };
+
+    var getFact = function () {
+
+        $.ajax({
+            url: 'https://numbersapi.p.mashape.com/' + numberHolder + '/trivia?fragment=true&json=true&notfound=floor',
+            datatype: 'json',
+            success: function (data) {
+                var triviaNum = "Fact about # " + data.number;
+                var triviaFact = data.number + ": " + data.text;
+                document.getElementById("randomPrize").innerHTML = "<br>" + triviaNum + "<br>" + triviaFact;
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-Mashape-Authorization", "035vi91FxRmshxP9HdyDipEnKGr5p15ixpjjsn1IF2377M87v7");
+            }
+        });
+    };
+// <-------------------------------------------- End APIs
+
+    if (newNum <= 3) {
+        getQuote()
+    }
+    else if (newNum >= 7) {
+        getImg()
+    }
+    else {
+        getFact()
+    }
 };
