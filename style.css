@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    font-family: 'Knewave', cursive;
+    font-family: 'Knewave', sans-serif;
     margin: 0 auto;
 }
 
@@ -82,12 +82,12 @@ button:hover {
 }
 
 #randomPrize {
-    font-family: Veranda, sans-serif;
-    font-size: 4vh;
-    font-weight: bold;
+    font-size: 7vh;
+    font-family: 'Just Another Hand', sans-serif;
 }
 
-#aaa{
+#prizeString {
 font-style: italic;
     margin-left: 15%;
+    font-family: 'Just Another Hand', sans-serif;
 }
