@@ -71,12 +71,12 @@ var prizeNum;
 var reward = function () {
     pick_number();
     if (prizeNum <= 3) {
-        var quoteContainer;
+        console.log("quote");
         $.ajax({
             url: 'https://andruxnet-random-famous-quotes.p.mashape.com/',
             datatype: 'json',
             success: function (data) {
-                quoteContainer = JSON.parse(data);
+                var quoteContainer = JSON.parse(data);
                 var quote = "<br>" + "\"" + quoteContainer.quote + "\"" + '<br><span id=\"prizeString\"> -' + quoteContainer.author + '</span>';
                 document.getElementById("randomPrize").innerHTML = quote;
             },
@@ -86,6 +86,7 @@ var reward = function () {
         });
     }
     else if (prizeNum >= 7) {
+        console.log("img");
         $.ajax({
             dataType: 'json',
             url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC',
@@ -99,12 +100,13 @@ var reward = function () {
         });
     }
     else {
+        console.log("fact");
         $.ajax({
             url: 'https://numbersapi.p.mashape.com/' + the_number + '/trivia?fragment=true&json=true&notfound=floor',
             datatype: 'json',
             success: function (data) {
                 var triviaNum = "Fact about # " + data.number;
-                var triviaFact = data.number + ": " + data.text;
+                var triviaFact = data.number + " is " + data.text;
                 document.getElementById("randomPrize").innerHTML = "<br>" + triviaNum + "<br>" + triviaFact;
             },
             beforeSend: function (xhr) {
@@ -113,3 +115,9 @@ var reward = function () {
         });
     }
 };
+
+var restart = function () {
+    window.location.reload();
+};
+
+

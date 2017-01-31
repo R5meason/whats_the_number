@@ -87,7 +87,6 @@ button:hover {
 }
 
 #prizeString {
-font-style: italic;
+    font-style: italic;
     margin-left: 15%;
-    font-family: 'Just Another Hand', sans-serif;
 }
