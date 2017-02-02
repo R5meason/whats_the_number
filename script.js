@@ -80,6 +80,11 @@ var reward = function () {
                 var quote = "<br>" + "\"" + quoteContainer.quote + "\"" + '<br><span id=\"prizeString\"> -' + quoteContainer.author + '</span>';
                 document.getElementById("randomPrize").innerHTML = quote;
             },
+            error: function (request, status, errorThrown) {
+                // There's been an error, do something with it!
+                // Only use status and errorThrown.
+                // Chances are request will not have anything in it.
+            },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("X-Mashape-Authorization", "035vi91FxRmshxP9HdyDipEnKGr5p15ixpjjsn1IF2377M87v7"); // Enter here your Mashape key
             }
@@ -96,6 +101,11 @@ var reward = function () {
                 var imgStop = "'>";
                 var logo = "<img id='giphyLogo' src='imgs/Poweredby_100px-White_VertText.png'>";
                 document.getElementById("randomPrize").innerHTML = logo + "<br>" + imgStart + randoImg + imgStop;
+            },
+            error: function (request, status, errorThrown) {
+                // There's been an error, do something with it!
+                // Only use status and errorThrown.
+                // Chances are request will not have anything in it.
             }
         });
     }
@@ -108,6 +118,11 @@ var reward = function () {
                 var triviaNum = "Fact about # " + data.number;
                 var triviaFact = data.number + " is " + data.text;
                 document.getElementById("randomPrize").innerHTML = "<br>" + triviaNum + "<br>" + triviaFact;
+            },
+            error: function (request, status, errorThrown) {
+                // There's been an error, do something with it!
+                // Only use status and errorThrown.
+                // Chances are request will not have anything in it.
             },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("X-Mashape-Authorization", "035vi91FxRmshxP9HdyDipEnKGr5p15ixpjjsn1IF2377M87v7");

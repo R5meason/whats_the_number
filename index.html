@@ -12,32 +12,32 @@
 </head>
 <body>
 <div class="start">
-<header>
-    <p id="title">What's The Number?</p>
-    <p id="info">Guess The Correct Number Between 1 - 10 & Receive A Surprise</p>
-</header>
-<div class="game_container">
-    <div id="remainingGuesses">Remaining Guesses: <span id="guessNum"></span></div>
-    <button id="reset" onClick="restart()">
-        Play Again?
-    </button>
-    <div id="game_input">
-        <input id="guess_input" class="enterGuess" type="text" placeholder="?">
-    </div>
+    <header>
+        <p id="title">What's The Number?</p>
+        <p id="info">Guess The Correct Number Between 1 - 10 & Receive A Surprise</p>
+    </header>
+    <div class="game_container">
+        <div id="remainingGuesses">Remaining Guesses: <span id="guessNum"></span></div>
+        <button id="reset" onClick="restart()">
+            Play Again?
+        </button>
+        <div id="game_input">
+            <input id="guess_input" class="enterGuess" type="text" placeholder="?">
+        </div>
         <br>
-    <button id="submit" class="enterGuess" type="button">
-        Guess
-    </button>
-    <br>
-    <div id="response_div"></div>
-    <div id="prize_container">
-        <div class="imageHeader">
-           You've Won! Here's Your Prize:
-            <br>
-            <div id="randomPrize"></div>
+        <button id="submit" class="enterGuess" type="button">
+            Guess
+        </button>
+        <br>
+        <div id="response_div"></div>
+        <div id="prize_container">
+            <div class="imageHeader">
+                You've Won! Here's Your Prize:
+                <br>
+                <div id="randomPrize"></div>
+            </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 </html>
