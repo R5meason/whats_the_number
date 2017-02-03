@@ -83,10 +83,8 @@ var reward = function () {
                 var quote = "<br>" + "\"" + quoteContainer.quote + "\"" + '<br><span id=\"prizeString\"> -' + quoteContainer.author + '</span>';
                 document.getElementById("randomPrize").innerHTML = quote;
             },
-            error: function (request, status, errorThrown) {
-                // There's been an error, do something with it!
-                // Only use status and errorThrown.
-                // Chances are request will not have anything in it.
+            error: function () {
+                reward();
             },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("X-Mashape-Authorization", "035vi91FxRmshxP9HdyDipEnKGr5p15ixpjjsn1IF2377M87v7"); // Enter here your Mashape key
