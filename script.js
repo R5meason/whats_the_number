@@ -103,9 +103,10 @@ var reward = function () {
                 document.getElementById("randomPrize").innerHTML = logo + "<br>" + imgStart + randoImg + imgStop;
             },
             error: function (request, status, errorThrown) {
-                // There's been an error, do something with it!
-                // Only use status and errorThrown.
-                // Chances are request will not have anything in it.
+                console.log("error: Img");
+                console.log("Request: "+request);
+                console.log("Status: "+status);
+                console.log("Error Thrown: "+errorThrown);
             }
         });
     }
