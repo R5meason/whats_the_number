@@ -70,7 +70,7 @@ function make_guess() {                 //compares user input to the random numb
 
 
 var prizeNum;
-var reward = function () {z
+var reward = function () {
     pick_number();
     if (prizeNum <= 3) {
         console.log("quote");
