@@ -29,7 +29,6 @@ var amtOfTurns = function (turns) {
 function pick_number() {
     var random_number = Math.floor(Math.random() * 10 + 1); //Math.Random gives random # from 0 - .9999[...] Math.floor gives whole number, *10 + 1 multiplies whole number by 10 and adds 1 (in case of zero).
     prizeNum = random_number;
-    console.log(random_number);
     return random_number;
 }
 
@@ -68,14 +67,12 @@ function make_guess() {                 //compares user input to the random numb
 }
 
 
-
+var errCount = 0;
 
 var prizeNum;
 var reward = function () {
-    var errCount = 0;
-    console.log("errCount:"+errCount);
-    if (errCount === 3) {
-        console.log("donzo")
+    if (errCount === 2) {
+        document.getElementById("randomPrize").innerHTML = "<br><img src = 'imgs/pizzaCat.PNG' style='height:207px; width:555px;'>";
     }
     else {
 
